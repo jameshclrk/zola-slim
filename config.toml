@@ -1,0 +1,25 @@
+# The URL the site will be built for
+base_url = "https://zola-slim.netlify.com"
+
+compile_sass = true
+title = "Slim"
+description = ""
+highlight_code = false
+generate_rss = true
+
+taxonomies = [
+    {name = "tags", rss = true},
+]
+
+# Whether to build a search index to be used later on by a JavaScript library
+build_search_index = false
+
+[extra]
+slim_summary = false
+slim_content = false
+slim_menu = [
+    {url = "$BASE_URL/tags", name = "Tags"}
+]
+slim_social = [
+    {url = "https://github.com/jameshclrk", name = "Github"}
+]

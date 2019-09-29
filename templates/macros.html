@@ -1,0 +1,73 @@
+{% macro header() %}
+<div class="header">
+    <h1 class="site-title"><a href="{{ config.base_url }}">{{ config.title }}</a></h1>
+    <p class="site-tagline">{{ config.description }}</p>
+    <div class="nav">
+        <a class="nav-btn" href="#">
+            <span class="ci ci-burger"></span>
+        </a>
+        <ul class="nav-list">
+            {% if config.extra.slim_menu %}
+                {% for item in config.extra.slim_menu %}
+                    <li><a href="{{ item.url | safe | replace(from="$BASE_URL", to=config.base_url) }}">{{ item.name }}</a></li>
+                {% endfor %}
+            {% endif %}
+            <li class="spacer">&ac;</li>
+            {% if config.extra.slim_social %}
+                {% for item in config.extra.slim_social %}
+                    <li><a href="{{ item.url | safe }}">{{ item.name }}</a></li>
+                {% endfor %}
+            {% endif %}
+        </ul>
+    </div>
+</div>
+{% endmacro header %}
+
+{% macro list_pages(pages) %}
+    {% for page in pages %}
+        <div class="post">
+            <h2 class="post-title"><a href="{{ page.permalink }}">{{ page.title }}</a></h2>
+            <span class="post-date">{{ page.date | date(format="%B %d, %Y") }}</span>
+            {% if page.taxonomies.tags %}
+                <span class="post-tags">
+                    {% for tag in page.taxonomies.tags %}
+                        #<a href="{{ get_taxonomy_url(kind="tags", name=tag) | safe }}">{{ tag }}</a>&nbsp;
+                    {% endfor %}
+                </span>
+            {% endif %}
+            {% if config.extra.slim_summary %}
+                {% if page.summary %}
+                    <div class="summary">
+                        {{ page.summary | safe | striptags }}
+                        <a class="read-more" href="{{ page.permalink }}">&hellip;</a>
+                    </div>
+                {% endif %}
+            {% elif config.extra.slim_content %}
+                <div class="content">
+                    {{ page.content | safe | striptags }}
+                </div>
+            {% endif %}
+        </div>
+    {% endfor %}
+{% endmacro list_posts %}
+
+{% macro pagination(paginator) %}
+    <div class="pagination">
+        {% if paginator.previous %}
+            <a rel="prev" href="{{paginator.previous}}" class="btn previous">Newer</a>
+        {% endif %}
+        {% if paginator.next %}
+            <a rel="next" href="{{paginator.next}}" class="btn next">Older</a>
+        {% endif %}
+    </div>
+{% endmacro paginator %}
+
+{% macro footer() %}
+    <div class="footer">
+        {% if config.extra.slim_footer %}
+            <p>{{ config.extra.slim_footer | safe }}</p>
+        {% else %}
+            <p>Powered by <a href="https://getzola.org">Zola</a></p>
+        {% endif %}
+    </div>
+{% endmacro footer %}

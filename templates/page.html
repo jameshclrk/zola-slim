@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block title %}
+{{ page.title }} &middot; {{ super() }}
+{% endblock title%}
+
+{% block content %}
+    <div class="post">
+        {% block post %}
+            <h2 class="post-title"><a href="{{ page.permalink }}">{{ page.title }}</a></h2>
+            <div class="post-content">
+                {{ page.content | safe }}
+            </div>
+        {% endblock post %}
+    </div>
+{% endblock content %}

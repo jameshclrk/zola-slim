@@ -1,0 +1,22 @@
+name = "Slim"
+description = "Slim is a minimal, clean and beautiful theme for Zola."
+license = "MIT"
+homepage = "https://github.com/jameshclrk/zola-slim"
+min_version = "0.8.0"
+demo = "https://zola-slim.netlify.com"
+
+[extra]
+slim_summary = true
+slim_content = false
+slim_menu = []
+slim_social = []
+slim_footer = ""
+
+[author]
+name = "James Clark"
+homepage = "https://jamesclark.dev"
+
+[original]
+author =  "zhe"
+homepage = "https://github.com/zhe"
+repo = "https://github.com/zhe/hugo-theme-slim"
