@@ -23,18 +23,22 @@
 </div>
 {% endmacro header %}
 
+{% macro post_header(page) %}
+    <h2 class="post-title"><a href="{{ page.permalink }}">{{ page.title }}</a></h2>
+    <span class="post-date">{{ page.date | date(format="%B %d, %Y") }}</span>
+    {% if page.taxonomies.tags %}
+        <span class="post-tags">
+            {% for tag in page.taxonomies.tags %}
+                #<a href="{{ get_taxonomy_url(kind="tags", name=tag) | safe }}">{{ tag }}</a>&nbsp;
+            {% endfor %}
+        </span>
+    {% endif %}
+{% endmacro post_header %}
+
 {% macro list_pages(pages) %}
     {% for page in pages %}
         <div class="post">
-            <h2 class="post-title"><a href="{{ page.permalink }}">{{ page.title }}</a></h2>
-            <span class="post-date">{{ page.date | date(format="%B %d, %Y") }}</span>
-            {% if page.taxonomies.tags %}
-                <span class="post-tags">
-                    {% for tag in page.taxonomies.tags %}
-                        #<a href="{{ get_taxonomy_url(kind="tags", name=tag) | safe }}">{{ tag }}</a>&nbsp;
-                    {% endfor %}
-                </span>
-            {% endif %}
+            {{ self::post_header(page=page) }}
             {% if config.extra.slim_summary %}
                 {% if page.summary %}
                     <div class="summary">
