@@ -367,3 +367,18 @@ button,
 
 .tag-list {
 }
+
+@media only screen and (max-width: 799px) {
+  .container {
+    max-width: 80%;
+  }
+  .header {
+    margin-left: 15px;
+  }
+  .nav-list {
+    transform: translateX(100%);
+    li {
+      display: inline;
+    }
+  }
+}
