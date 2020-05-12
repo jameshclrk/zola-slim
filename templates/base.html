@@ -26,5 +26,6 @@
             {{ macros::footer() }}
         </div>
         <script src="{{ get_url(path="js/slim.js", trailing_slash=false) }}"></script>
+        {% block extra_script %}{% endblock extra_script %}
     </body>
 </html>

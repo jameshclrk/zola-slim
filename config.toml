@@ -17,6 +17,7 @@ build_search_index = false
 [extra]
 slim_summary = false
 slim_content = false
+slim_netlify_identity = false
 slim_menu = [
     {url = "$BASE_URL/tags", name = "Tags"}
 ]
