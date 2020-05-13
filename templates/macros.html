@@ -8,15 +8,15 @@
         </a>
         <ul class="nav-list">
             {% if config.extra.slim_menu %}
-                {% for item in config.extra.slim_menu %}
-                    <li><a href="{{ item.url | safe | replace(from="$BASE_URL", to=config.base_url) }}">{{ item.name }}</a></li>
-                {% endfor %}
+            {% for item in config.extra.slim_menu %}
+            <li><a href="{{ item.url | safe | replace(from="$BASE_URL", to=config.base_url) }}">{{ item.name }}</a></li>
+            {% endfor %}
             {% endif %}
             <li class="spacer">&ac;</li>
             {% if config.extra.slim_social %}
-                {% for item in config.extra.slim_social %}
-                    <li><a href="{{ item.url | safe }}">{{ item.name }}</a></li>
-                {% endfor %}
+            {% for item in config.extra.slim_social %}
+            <li><a href="{{ item.url | safe }}">{{ item.name }}</a></li>
+            {% endfor %}
             {% endif %}
         </ul>
     </div>
@@ -24,56 +24,56 @@
 {% endmacro header %}
 
 {% macro post_header(page) %}
-    <h2 class="post-title"><a href="{{ page.permalink }}">{{ page.title }}</a></h2>
+<h2 class="post-title"><a href="{{ page.permalink }}">{{ page.title }}</a></h2>
 <div class="post-header">
     <span class="post-date">{{ page.date | date(format="%B %d, %Y") }}</span>
     {% if page.taxonomies.tags %}
     <div class="post-tags">
-            {% for tag in page.taxonomies.tags %}
+        {% for tag in page.taxonomies.tags %}
         <span class="post-tag">#<a href="{{ get_taxonomy_url(kind="tags", name=tag) | safe }}">{{ tag }}</a></span>
-            {% endfor %}
+        {% endfor %}
     </div>
     {% endif %}
 </div>
 {% endmacro post_header %}
 
 {% macro list_pages(pages) %}
-    {% for page in pages %}
-        <div class="post">
-            {{ self::post_header(page=page) }}
-            {% if config.extra.slim_summary %}
-                {% if page.summary %}
-                    <div class="summary">
-                        {{ page.summary | safe | striptags }}
-                        <a class="read-more" href="{{ page.permalink }}">&hellip;</a>
-                    </div>
-                {% endif %}
-            {% elif config.extra.slim_content %}
-                <div class="content">
-                    {{ page.content | safe | striptags }}
-                </div>
-            {% endif %}
-        </div>
-    {% endfor %}
+{% for page in pages %}
+<div class="post">
+    {{ self::post_header(page=page) }}
+    {% if config.extra.slim_summary %}
+    {% if page.summary %}
+    <div class="summary">
+        {{ page.summary | safe | striptags }}
+        <a class="read-more" href="{{ page.permalink }}">&hellip;</a>
+    </div>
+    {% endif %}
+    {% elif config.extra.slim_content %}
+    <div class="content">
+        {{ page.content | safe | striptags }}
+    </div>
+    {% endif %}
+</div>
+{% endfor %}
 {% endmacro list_posts %}
 
 {% macro pagination(paginator) %}
-    <div class="pagination">
-        {% if paginator.previous %}
-            <a rel="prev" href="{{paginator.previous}}" class="btn previous">Newer</a>
-        {% endif %}
-        {% if paginator.next %}
-            <a rel="next" href="{{paginator.next}}" class="btn next">Older</a>
-        {% endif %}
-    </div>
+<div class="pagination">
+    {% if paginator.previous %}
+    <a rel="prev" href="{{paginator.previous}}" class="btn previous">Newer</a>
+    {% endif %}
+    {% if paginator.next %}
+    <a rel="next" href="{{paginator.next}}" class="btn next">Older</a>
+    {% endif %}
+</div>
 {% endmacro paginator %}
 
 {% macro footer() %}
-    <div class="footer">
-        {% if config.extra.slim_footer %}
-            <p>{{ config.extra.slim_footer | safe }}</p>
-        {% else %}
-            <p>Powered by <a href="https://getzola.org">Zola</a></p>
-        {% endif %}
-    </div>
+<div class="footer">
+    {% if config.extra.slim_footer %}
+    <p>{{ config.extra.slim_footer | safe }}</p>
+    {% else %}
+    <p>Powered by <a href="https://getzola.org">Zola</a></p>
+    {% endif %}
+</div>
 {% endmacro footer %}
