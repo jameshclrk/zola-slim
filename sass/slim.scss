@@ -292,7 +292,9 @@ button,
 
 .post {
   position: relative;
-  margin-bottom: 2rem; }
+.post-title {
+  margin-bottom: -0.5rem;
+}
 
 .post-title:after {
   content: '';
@@ -336,14 +338,16 @@ button,
   .post-title a:hover:before {
     left: -3px; }
   .post-title a:hover:after {
-    right: -3px; }
+.post-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
 
 .post-date {
   color: #ccc;
   font-size: 14px;
-  margin-top: -25px;
-  display:block;
-  position: relative; }
+}
 
 .post-content {
   margin: 2rem 0; }
@@ -355,17 +359,15 @@ button,
   display: block;
   font-size: 14px;
   position: relative;
-  margin-top: -25px;
-  margin-left: 125px;
-  text-align: right;
-  max-width: 525px;
+  left: -30px;
 }
 
 .post-tags a {
 	color: #ccc;
 }
 
-.tag-list {
+.post-tag {
+  margin-left: 5px;
 }
 
 @media only screen and (max-width: 799px) {
