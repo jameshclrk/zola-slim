@@ -246,17 +246,16 @@ button:active,
   bottom: 0;
 }
 .nav-btn.is-on + .nav-list {
-  opacity: 1;
+  background: #ffffff;
+  display: block;
 }
 
 .nav-list {
+  display: none;
   list-style: none;
   font-size: 0.8rem;
   margin-top: 1rem;
-  padding: 0;
-  opacity: 0;
-  -webkit-transition: all 0.2s;
-  transition: all 0.2s;
+  padding: 0.25rem 0.25rem;
 }
 
 .nav-list .spacer {
