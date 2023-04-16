@@ -3,7 +3,7 @@ description = "Slim is a minimal, clean and beautiful theme for Zola."
 license = "MIT"
 homepage = "https://github.com/jameshclrk/zola-slim"
 min_version = "0.8.0"
-demo = "https://zola-slim.netlify.com"
+demo = "https://zola-slim.netlify.app"
 
 [extra]
 slim_summary = true

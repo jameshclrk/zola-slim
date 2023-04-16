@@ -1,5 +1,5 @@
 # The URL the site will be built for
-base_url = "https://zola-slim.netlify.com"
+base_url = "https://zola-slim.netlify.app"
 
 compile_sass = true
 title = "Slim"
